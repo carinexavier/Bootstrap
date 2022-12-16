@@ -1,3 +1,4 @@
+
 .servicos img{
     height:250px;
     width:100%;
@@ -20,7 +21,7 @@
 
 .footer {
     background-color: rgb(185, 185, 185);
-    height: 180px;
+    height: 1px;
     padding: 10px;
     border: 1px solid #000;
 }

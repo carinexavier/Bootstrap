@@ -3,27 +3,20 @@
     require_once 'menu.php';
  ?>
 
- <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-        </div>
-        <div class="col-md-6"> 
+ <div class="container">
+    <div class="row serviços"> 
+        <div class="col-md-6">
             <img src="imagens/relampagomarquinho.jpg">
         </div>
-        <div class="col-md-6"> 
-            <h3>Quem Somos</h3>
-            <p>vhjbdbcdkl</p>
-        </div>
-        <div class="col-md-6"> 
-            <h3>Nossos Valores</h3>
-            <p>vhjbdbcdkl</p>
+        <div class="col-md-6 text-center"> 
+            <h2>Quem Somos</h2>
+            <p>Iniciamos nossas atividades em 2007, com uma estrutura
+               simples mas sempre prezando pela boa convivência e prestar
+               um serviço de excelência à nossa comunidade.</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-        </div>
-    </div>
-</div>
+ </div>
 
 <?php
+require_once 'footer.php';
 ?>

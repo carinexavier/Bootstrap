@@ -1,5 +1,5 @@
-<div class="container-fluid">
-        <div class="row text-center footer" >
+<div class="container-fluid footer">
+        <div class="row text-center" >
             <div class="col-md-3">
               <h3>Concenssionária Marquinho's </h3>
               <p>Nossa loja esta há mais de 15 anos no mercado trabalhando para oferecer os melhores carros para você! </p>
@@ -37,6 +37,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Fale Conosco</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="admin.php">Área Administrativa</a>
                 </li>
               </ul>
                 

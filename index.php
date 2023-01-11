@@ -1,6 +1,8 @@
  <?php
     require_once 'head.php';
     require_once 'menu.php';
+
+    include_once 'conexao.php';
  ?> 
   <div class="container-fluid">
         <div class="row text-center carrossel">

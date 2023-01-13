@@ -1,24 +1,41 @@
 <?php
-require_once 'head.php';
-include_once 'conexao.php';
+  require_once 'head.php';
+  include_once 'conexao.php';
+  session_start();
+  ob_start();
 ?>
 
 <?php
+  echo "senha".password_hash(123, PASSWORD_DEFAULT); 
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
   if(!empty($dados["btnlogin"])){
   var_dump($dados);
-    $sql = "SELECT matricula, nome, usuario, senha
+    $sql = "SELECT matricula, nome, email, senha
               FROM funcionario
-              WHERE usuario =:usuario
+              WHERE email =:usuario
               LIMIT 1";
     $resultado= $conn->prepare($sql);
-    $resultado->bindParam (':usuario', $dados ['usuario'], PDO::PARAM_STR);
+    $resultado->bindParam (':usuario', $dados['usuario'], PDO::PARAM_STR);
     $resultado->execute();
     if (($resultado) AND ($resultado->rowCount() !=0)) {
       $linha = $resultado->fetch (PDO::FETCH_ASSOC);
       var_dump($linha);
+      if (password_verify($dados['senha'], $linha['senha'])){
+        $_SESSION['nome'] = $linha['nome'];
+        header("Location: administrativo.php");
+      }
+      else{
+        $_SESSION['msg'] = "Usuário ou Senha não encontrados";
+      }
+    }
+    else{
+      $_SESSION['msg'] = "Usuário ou Senha não encontrados";     
     }
   }
+    if(isset($_SESSION['msg'])){
+      echo $_SESSION['msg'];
+      unset($_SESSION['msg']);
+    }
 ?>
 
   <body class="login body">
@@ -30,8 +47,8 @@ include_once 'conexao.php';
         </div>
     
         <form method="POST" action="">
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nome de Usuário" name="usuario">
-          <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha" name="senha">
+          <input type="text" id="login" class="fadeIn second" placeholder="Nome de Usuário" name="usuario">
+          <input type="text" id="password" class="fadeIn third" placeholder="Senha" name="senha">
           <input type="submit" class="fadeIn fourth" value="Entrar" name="btnlogin">
         </form>
     

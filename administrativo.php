@@ -7,4 +7,12 @@
     <h1 class="text center"> Área administrativa </h1>
     <?php
     echo "Bem Vindo(a) " . $_SESSION['nome'];
+
+    if(!isset($_SESSION['nome'])){
+        $_SESSION['msg'] = "Erro: Necessário realizar o login para acessar a página!";
+        header("Location: login.php");
+    }
+    
     ?>
+
+    <a href="sair.php"><button type="submit">Sair</button></a>

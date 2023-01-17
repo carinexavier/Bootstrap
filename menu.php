@@ -36,7 +36,7 @@
                     <a class="nav-link" href="#">Fale Conosco</a>
              </li>
              <li class="nav-item">
-                    <a class="nav-link" href="#">Área do Cliente</a>
+                    <a class="nav-link" href="login.php">Área do Cliente</a>
              </li>
            </ul>
                   <form class="form-inline my-2 my-lg-0">

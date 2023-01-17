@@ -6,7 +6,6 @@
 ?>
 
 <?php
-  echo "senha".password_hash(123, PASSWORD_DEFAULT); 
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
   if(!empty($dados["btnlogin"])){
   var_dump($dados);
@@ -50,6 +49,7 @@
           <input type="text" id="login" class="fadeIn second" placeholder="Nome de Usuário" name="usuario">
           <input type="text" id="password" class="fadeIn third" placeholder="Senha" name="senha">
           <input type="submit" class="fadeIn fourth" value="Entrar" name="btnlogin">
+          <input type="submit" class="fadeIn fourth" value="Cadastre-se" name="btnlogin">
         </form>
     
         <div id="formFooter">

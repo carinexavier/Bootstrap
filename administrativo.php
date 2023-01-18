@@ -15,4 +15,8 @@
     
     ?>
 
+<h4>
+    <a href="frmfuncionario.php"><button type="submit">Cadastro de Funcionário</button></a>
+    <a href="relfuncionarios.php"><button type="submit">Relatório de Funcionários</button></a>
     <a href="sair.php"><button type="submit">Sair</button></a>
+</h4>

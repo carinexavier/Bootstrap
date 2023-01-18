@@ -31,13 +31,10 @@
                     <input type="text" name="cpf" class="form-control" onkeypress="$(this).mask('000.000.000-00');">
                 </div>
             </div>
-           
         </div>
         
         <div class="row">
            
-           
-
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="qualificacao">Qualificação</label>
@@ -58,7 +55,6 @@
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">                   
                 </div>
             </div>
-
 
         </div>
 
@@ -88,9 +84,10 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
-                    <input type="text" class="form-control" name="complemento">
+                    <input type="text" class="form-control" name="complemento" value="casa">
                 </div>
             </div>
+        
         </div>
 
         <div class="row">     
@@ -115,6 +112,7 @@
                  <input type="text" class="form-control" id="uf" name="uf">
                 </div>
             </div>
+       
         </div>
         
         <div class="row">   
@@ -122,23 +120,27 @@
             <div class="col-md-5  ">
               <div class="form-group">
                  <label for="senha">Informe uma Senha</label><p>
-                 <input type="text" class="form-control" name="senha">
+                 <input type="password" class="form-control" name="senha">
                 </div>
             </div>
-
+       
+        </div>
             
-
-            <div class="col-md-2">
+        <div class="row">   
+         
+            <div class="col-md-12 text-right">
                 <div class="form-group">
                    
                     <input type="submit" class="btn btn-primary" value="Enviar" name="btncad">
                 </div>  
             </div>
+        
         </div>
+    
     </div>
   
 </form>
 
 <?php
-    require 'footeradm.php';
+require_once 'footeradm.php';
 ?>

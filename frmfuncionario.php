@@ -2,7 +2,7 @@
     require_once 'head.php';
 ?>
 
-<form method="POST" action="controlefuncionario.php">
+<form method="POST" action="controlefuncionario.php" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
                 <div class="col-md-12 text-center">
@@ -121,6 +121,13 @@
               <div class="form-group">
                  <label for="senha">Informe uma Senha</label><p>
                  <input type="password" class="form-control" name="senha">
+                </div>
+            </div>
+
+            <div class="col-md-5  ">
+              <div class="form-group">
+                 <label for="foto">Selecione uma foto</label><p>
+                 <input type="file" class="form-control" name="foto">
                 </div>
             </div>
        

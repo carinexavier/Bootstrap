@@ -4,9 +4,13 @@
 
 .pecas {
     margin: 30px;
+    padding-right: 10px; 
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 .card {
     width:20rem;
     height:30rem;
+   
 }

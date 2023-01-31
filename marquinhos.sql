@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Jan-2023 às 01:29
+-- Tempo de geração: 31-Jan-2023 às 01:33
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `marquinhos`
 --
-CREATE DATABASE IF NOT EXISTS `marquinhos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `marquinhos`;
 
 -- --------------------------------------------------------
 
@@ -113,16 +111,18 @@ CREATE TABLE `peca` (
   `marca` varchar(40) NOT NULL,
   `quantidade` int(100) NOT NULL,
   `preco` double NOT NULL,
-  `modeloano` varchar(250) NOT NULL
+  `modeloano` varchar(250) NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `peca`
 --
 
-INSERT INTO `peca` (`codigopeca`, `nome`, `marca`, `quantidade`, `preco`, `modeloano`) VALUES
-(1, 'Amortecedor', 'bomdemais', 100, 125, 'citroen 2009'),
-(2, 'freio', 'paradacerta', 150, 20, 'Renault 2015');
+INSERT INTO `peca` (`codigopeca`, `nome`, `marca`, `quantidade`, `preco`, `modeloano`, `foto`) VALUES
+(1, 'Amortecedor', 'bomdemais', 100, 125, 'citroen 2009', ''),
+(2, 'freio', 'paradacerta', 150, 20, 'Renault 2015', ''),
+(3, 'Peca1', 'magneti marelli', 15, 0, 'de 2009 a 2015', 'produtos/63d8601d3522d.webp');
 
 -- --------------------------------------------------------
 
@@ -288,7 +288,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `peca`
 --
 ALTER TABLE `peca`
-  MODIFY `codigopeca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codigopeca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `servico`

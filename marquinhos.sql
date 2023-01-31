@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Jan-2023 às 01:33
+-- Tempo de geração: 01-Fev-2023 às 00:36
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -120,9 +120,11 @@ CREATE TABLE `peca` (
 --
 
 INSERT INTO `peca` (`codigopeca`, `nome`, `marca`, `quantidade`, `preco`, `modeloano`, `foto`) VALUES
-(1, 'Amortecedor', 'bomdemais', 100, 125, 'citroen 2009', ''),
-(2, 'freio', 'paradacerta', 150, 20, 'Renault 2015', ''),
-(3, 'Peca1', 'magneti marelli', 15, 0, 'de 2009 a 2015', 'produtos/63d8601d3522d.webp');
+(1, 'Amortecedor', 'bomdemais', 100, 125, 'citroen 2009', 'produtos/amortecedor.jpg'),
+(2, 'freio', 'paradacerta', 150, 20, 'Renault 2015', 'produtos/63d8601d3522d.webp'),
+(3, 'Bieleta', 'magneti marelli', 15, 65, 'de 2009 a 2015', 'produtos/bieleta.jpg'),
+(4, 'Vela', 'universal', 70, 15, 'de 2000/2018', 'imagens/vela.webp'),
+(5, 'Porta treco', 'universal', 70, 40, 'universal', 'imagens/portatreco.jpg');
 
 -- --------------------------------------------------------
 
@@ -288,7 +290,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `peca`
 --
 ALTER TABLE `peca`
-  MODIFY `codigopeca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codigopeca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `servico`

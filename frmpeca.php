@@ -1,5 +1,6 @@
 <?php
     require_once 'head.php';
+    require_once 'conexao.php';
 ?>
 
 <form method="POST" action="controlepeca.php" enctype="multipart/form-data">
@@ -45,11 +46,11 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="preco">Preço</label>
-                    <input type="text" class="form-control" name="preco" onchange="this.value = this.value.replace(/,/g '.')">
+                    <input type="text" class="form-control" name="preco">
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-3">
               <div class="form-group">
                  <label for="foto">Selecione uma foto</label><p>
                  <input type="file" class="form-control" name="foto">
@@ -58,13 +59,36 @@
 
             <div class="col-md-3">
                 <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select name="categoria" class="form-control">
+                        <?php $sql = "SELECT * from categoria";
+                        $resultado=$conn->prepare($sql);
+                        $resultado->execute();
+                        
+                        if(($resultado) && ($resultado->rowCount()!=0)){
+                            while ($linha = $resultado->fetch(PDO::FETCH_ASSOC)){
+                                extract($linha);
+                        ?>
+
+                    <option value="<?php echo $idcategoria; ?>"><?php echo $nomecategoria; ?></option>
+                    <?php
+                            }
+                        }
+                    ?>    
+                    </select>
+                    
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-md-12 text-right">
+                <div class="form-group">
                    
                     <input type="submit" class="btn btn-primary" value="Enviar" name="btncad">
                 </div>  
             </div>
-       
-        </div>
-    
+            </div>
     </div>
   
 </form>

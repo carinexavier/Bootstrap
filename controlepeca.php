@@ -3,6 +3,7 @@
 include_once 'conexao.php';
 
 $dadoscad = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+//var_dump($dadoscad);//
 
 if(isset($_FILES['foto'])){
     $arquivo = ($_FILES['foto']);

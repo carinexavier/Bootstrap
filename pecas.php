@@ -24,7 +24,13 @@
           <h5 class="card-title"></h5>
           <p class="card-text"><?php echo $nome;?></p>
           <p>Preço R$ <?php echo $preco;?></p>
-          <button type="button" class="btn btn-primary">Comprar</button>
+          <form action="carrinho.php" method="post">
+            <h5><label>Quant</label>
+            <input type="number" name="quantcomprada" value="1"
+            style=width:50px;></h5>
+            <input type="hidden" name="codigopeca" value="<?php echo $codigopeca; ?>">
+          <input type="submit" class="btn btn-primary" value="Comprar">
+          </form>
           </div>
       </div>
     </div>

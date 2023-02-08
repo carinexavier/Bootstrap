@@ -1,11 +1,54 @@
-DROP DATABASE IF EXISTS marquinhos;
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 08-Fev-2023 às 01:20
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `marquinhos`
+--
 CREATE DATABASE IF NOT EXISTS `marquinhos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `marquinhos`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cliente`
+-- Estrutura da tabela `carrinho`
+--
+
+CREATE TABLE `carrinho` (
+  `codigopeca` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `quantcomprada` int(11) NOT NULL,
+  `preco` double NOT NULL,
+  `foto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `carrinho`
+--
+
+INSERT INTO `carrinho` (`codigopeca`, `nome`, `quantcomprada`, `preco`, `foto`) VALUES
+(2, 'amortecedores dianteiros par', 2, 530, 'produtos/amortecedor.jpg'),
+(3, 'peça1', 3, 50, 'produtos/parachoque.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -19,7 +62,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `cliente`
+-- Extraindo dados da tabela `cliente`
 --
 
 INSERT INTO `cliente` (`cpf`, `nome`, `telefone`, `cep`, `numerocasa`, `complemento`, `status`) VALUES
@@ -29,7 +72,7 @@ INSERT INTO `cliente` (`cpf`, `nome`, `telefone`, `cep`, `numerocasa`, `compleme
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `endereco`
+-- Estrutura da tabela `endereco`
 --
 
 CREATE TABLE `endereco` (
@@ -41,7 +84,7 @@ CREATE TABLE `endereco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `endereco`
+-- Extraindo dados da tabela `endereco`
 --
 
 INSERT INTO `endereco` (`cep`, `rua`, `bairro`, `cidade`, `uf`) VALUES
@@ -51,7 +94,7 @@ INSERT INTO `endereco` (`cep`, `rua`, `bairro`, `cidade`, `uf`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `funcionario`
+-- Estrutura da tabela `funcionario`
 --
 
 CREATE TABLE `funcionario` (
@@ -71,7 +114,7 @@ CREATE TABLE `funcionario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `funcionario`
+-- Extraindo dados da tabela `funcionario`
 --
 
 INSERT INTO `funcionario` (`matricula`, `nome`, `telefone`, `cpf`, `qualificacao`, `experiencia`, `cep`, `numerocasa`, `complemento`, `email`, `senha`, `status`, `foto`) VALUES
@@ -83,7 +126,7 @@ INSERT INTO `funcionario` (`matricula`, `nome`, `telefone`, `cpf`, `qualificacao
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `peca`
+-- Estrutura da tabela `peca`
 --
 
 CREATE TABLE `peca` (
@@ -97,19 +140,19 @@ CREATE TABLE `peca` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `peca`
+-- Extraindo dados da tabela `peca`
 --
 
 INSERT INTO `peca` (`codigopeca`, `nome`, `marca`, `modeloano`, `quantidade`, `preco`, `foto`) VALUES
-(1, 'pastilha de freio', 'frasle', 'citroen c3 e c4 - 2007,2008,2009,2010', 30, 170, ''),
-(2, 'amortecedores dianteiros par', 'nakata', 'Renault Sandero,logan 2010/2011/2012', 10, 530, ''),
-(3, 'peça1', 'magneti mareli', 'de 2000/2010', 30, 50, 'produtos/63d85f9194b22.jpg'),
-(4, 'peca2', 'bosh', 'de 2010/2020', 52, 60, 'produtos/63d85fdb1318c.jpg');
+(1, 'pastilha de freio', 'frasle', 'citroen c3 e c4 - 2007,2008,2009,2010', 30, 170, 'produtos/63d8601d3522d.webp'),
+(2, 'amortecedores dianteiros par', 'nakata', 'Renault Sandero,logan 2010/2011/2012', 10, 530, 'produtos/amortecedor.jpg'),
+(3, 'peça1', 'magneti mareli', 'de 2000/2010', 30, 50, 'produtos/parachoque.jpg'),
+(4, 'peca2', 'bosh', 'de 2010/2020', 52, 60, 'produtos/bieleta.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `servico`
+-- Estrutura da tabela `servico`
 --
 
 CREATE TABLE `servico` (
@@ -124,7 +167,7 @@ CREATE TABLE `servico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `servico`
+-- Extraindo dados da tabela `servico`
 --
 
 INSERT INTO `servico` (`ordemservico`, `defeito`, `dataentrada`, `datasaida`, `preco`, `garantia`, `formapagamento`, `placa`) VALUES
@@ -134,7 +177,7 @@ INSERT INTO `servico` (`ordemservico`, `defeito`, `dataentrada`, `datasaida`, `p
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `servicofunc`
+-- Estrutura da tabela `servicofunc`
 --
 
 CREATE TABLE `servicofunc` (
@@ -145,7 +188,7 @@ CREATE TABLE `servicofunc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `servicofunc`
+-- Extraindo dados da tabela `servicofunc`
 --
 
 INSERT INTO `servicofunc` (`idservicofunc`, `descricao`, `ordemservico`, `matricula`) VALUES
@@ -155,7 +198,7 @@ INSERT INTO `servicofunc` (`idservicofunc`, `descricao`, `ordemservico`, `matric
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `servicopeca`
+-- Estrutura da tabela `servicopeca`
 --
 
 CREATE TABLE `servicopeca` (
@@ -166,7 +209,7 @@ CREATE TABLE `servicopeca` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `servicopeca`
+-- Extraindo dados da tabela `servicopeca`
 --
 
 INSERT INTO `servicopeca` (`idservicopeca`, `quantidade`, `codigopeca`, `ordemservico`) VALUES
@@ -176,7 +219,7 @@ INSERT INTO `servicopeca` (`idservicopeca`, `quantidade`, `codigopeca`, `ordemse
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `veiculo`
+-- Estrutura da tabela `veiculo`
 --
 
 CREATE TABLE `veiculo` (
@@ -189,7 +232,7 @@ CREATE TABLE `veiculo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `veiculo`
+-- Extraindo dados da tabela `veiculo`
 --
 
 INSERT INTO `veiculo` (`placa`, `marca`, `modelo`, `cor`, `ano`, `cpf`) VALUES
@@ -201,40 +244,40 @@ INSERT INTO `veiculo` (`placa`, `marca`, `modelo`, `cor`, `ano`, `cpf`) VALUES
 --
 
 --
--- Índices de tabela `cliente`
+-- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`cpf`),
   ADD KEY `cep` (`cep`);
 
 --
--- Índices de tabela `endereco`
+-- Índices para tabela `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`cep`);
 
 --
--- Índices de tabela `funcionario`
+-- Índices para tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`matricula`),
   ADD KEY `cep` (`cep`);
 
 --
--- Índices de tabela `peca`
+-- Índices para tabela `peca`
 --
 ALTER TABLE `peca`
   ADD PRIMARY KEY (`codigopeca`);
 
 --
--- Índices de tabela `servico`
+-- Índices para tabela `servico`
 --
 ALTER TABLE `servico`
   ADD PRIMARY KEY (`ordemservico`),
   ADD KEY `placa` (`placa`);
 
 --
--- Índices de tabela `servicofunc`
+-- Índices para tabela `servicofunc`
 --
 ALTER TABLE `servicofunc`
   ADD PRIMARY KEY (`idservicofunc`),
@@ -242,7 +285,7 @@ ALTER TABLE `servicofunc`
   ADD KEY `matricula` (`matricula`);
 
 --
--- Índices de tabela `servicopeca`
+-- Índices para tabela `servicopeca`
 --
 ALTER TABLE `servicopeca`
   ADD PRIMARY KEY (`idservicopeca`),
@@ -250,14 +293,14 @@ ALTER TABLE `servicopeca`
   ADD KEY `ordemservico` (`ordemservico`);
 
 --
--- Índices de tabela `veiculo`
+-- Índices para tabela `veiculo`
 --
 ALTER TABLE `veiculo`
   ADD PRIMARY KEY (`placa`),
   ADD KEY `cpf` (`cpf`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -291,43 +334,43 @@ ALTER TABLE `servicopeca`
   MODIFY `idservicopeca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `cliente`
+-- Limitadores para a tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`cep`) REFERENCES `endereco` (`cep`);
 
 --
--- Restrições para tabelas `funcionario`
+-- Limitadores para a tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`cep`) REFERENCES `endereco` (`cep`);
 
 --
--- Restrições para tabelas `servico`
+-- Limitadores para a tabela `servico`
 --
 ALTER TABLE `servico`
   ADD CONSTRAINT `servico_ibfk_1` FOREIGN KEY (`placa`) REFERENCES `veiculo` (`placa`);
 
 --
--- Restrições para tabelas `servicofunc`
+-- Limitadores para a tabela `servicofunc`
 --
 ALTER TABLE `servicofunc`
   ADD CONSTRAINT `servicofunc_ibfk_1` FOREIGN KEY (`ordemservico`) REFERENCES `servico` (`ordemservico`),
   ADD CONSTRAINT `servicofunc_ibfk_2` FOREIGN KEY (`matricula`) REFERENCES `funcionario` (`matricula`);
 
 --
--- Restrições para tabelas `servicopeca`
+-- Limitadores para a tabela `servicopeca`
 --
 ALTER TABLE `servicopeca`
   ADD CONSTRAINT `servicopeca_ibfk_1` FOREIGN KEY (`codigopeca`) REFERENCES `peca` (`codigopeca`),
   ADD CONSTRAINT `servicopeca_ibfk_2` FOREIGN KEY (`ordemservico`) REFERENCES `servico` (`ordemservico`);
 
 --
--- Restrições para tabelas `veiculo`
+-- Limitadores para a tabela `veiculo`
 --
 ALTER TABLE `veiculo`
   ADD CONSTRAINT `veiculo_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `cliente` (`cpf`);

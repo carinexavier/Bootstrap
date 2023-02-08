@@ -20,7 +20,11 @@
       var_dump($linha);
       if (password_verify($dados['senha'], $linha['senha'])){
         $_SESSION['nome'] = $linha['nome'];
-        header("Location: administrativo.php");
+        if($_SESSION["carrinho"]==true){
+          header("Location:frmfuncionario.php");
+        }else{
+          header("Location: administrativo.php");
+        }
       }
       else{
         $_SESSION['msg'] = "Usuário ou Senha não encontrados";

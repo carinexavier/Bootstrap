@@ -20,6 +20,7 @@
       var_dump($linha);
       if (password_verify($dados['senha'], $linha['senha'])){
         $_SESSION['nome'] = $linha['nome'];
+        $_SESSION['matricula'] = $linha['matricula'];
         if($_SESSION["carrinho"]==true){
           header("Location:frmfuncionario.php");
         }else{

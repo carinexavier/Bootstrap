@@ -43,11 +43,10 @@ $busca = "SELECT * from carrinho";
         <td><?php echo $preco; ?></td>
         <td><?php echo $quantcomprada; ?></td>
         <td><?php echo $total = $quantcomprada * $preco; 
-        $totalgeral += $total; 
-        ?></td>
-        <td> 
-            <input type="hidden" name="codigopeca" value="<?php echo $codigopeca; ?>">          
-            <input type="submit" class="btn btn-danger" name="excluir" value="Excluir">
+        $totalgeral += $total; ?></td>
+        <input type="hidden" name="codigopeca" value="<?php echo $codigopeca; ?>">          
+        <td>                                           
+        <a href="finaliza.php"><button type="submit" class="btn btn-danger" name="excluir" value="<?php echo $codigopeca; ?>">Excluir</button></a>
         </td>
     </tr>
                         
@@ -59,10 +58,11 @@ $busca = "SELECT * from carrinho";
         </table>
 
 <?php 
-echo "<h5 class=text-center><u>Total do Pedido - R$ " .$totalgeral;
+    echo "<h5 class=text-center><u>Total do Pedido - R$ " .$totalgeral;
 ?>
 </u></h5>
-<h4 class="text-center"><input type="submit" class="btn btn-primary" value="Finalizar Compra"></h4>
+    <?php $_SESSION["totalgeral"]=$totalgeral;?>
+    <h4 class="text-center"><input type="submit" class="btn btn-primary" value="Finalizar Compra"></h4>
 </form>
 <?php
 
